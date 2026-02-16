@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories | Nithya's Book World</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <nav>
+        <div class="logo">NITHYA'S</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="books.html">Books</a></li>
+            <li><a href="categories.html" class="active">Categories</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-icons">
+            <div class="cart-icon" onclick="window.location.href='cart.html'">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <span class="cart-count">0</span>
+            </div>
+        </div>
+    </nav>
+
+    <main style="margin-top: 120px; padding: 0 5%;">
+        <h1 style="font-size: 3rem; margin-bottom: 3rem;">Browse by Category</h1>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem;">
+            <!-- Category Cards -->
+            <div style="background: linear-gradient(45deg, #4f46e5, #9333ea); padding: 3rem 2rem; border-radius: 24px; position: relative; overflow: hidden; cursor: pointer; transition: transform 0.3s;"
+                onclick="window.location.href='books.html?cat=fiction'">
+                <div style="position: relative; z-index: 1;">
+                    <h2 style="font-size: 2rem; margin-bottom: 0.5rem;">Modern Fiction</h2>
+                    <p style="opacity: 0.8;">Discover contemporary masterpieces.</p>
+                </div>
+                <i class="fa-solid fa-feather"
+                    style="position: absolute; right: -20px; bottom: -20px; font-size: 8rem; opacity: 0.1;"></i>
+            </div>
+
+            <div style="background: linear-gradient(45deg, #10b981, #3b82f6); padding: 3rem 2rem; border-radius: 24px; position: relative; overflow: hidden; cursor: pointer; transition: transform 0.3s;"
+                onclick="window.location.href='books.html?cat=design'">
+                <div style="position: relative; z-index: 1;">
+                    <h2 style="font-size: 2rem; margin-bottom: 0.5rem;">Art & Design</h2>
+                    <p style="opacity: 0.8;">Visual inspiration for creators.</p>
+                </div>
+                <i class="fa-solid fa-palette"
+                    style="position: absolute; right: -20px; bottom: -20px; font-size: 8rem; opacity: 0.1;"></i>
+            </div>
+
+            <div style="background: linear-gradient(45deg, #f59e0b, #ef4444); padding: 3rem 2rem; border-radius: 24px; position: relative; overflow: hidden; cursor: pointer; transition: transform 0.3s;"
+                onclick="window.location.href='books.html?cat=philosophy'">
+                <div style="position: relative; z-index: 1;">
+                    <h2 style="font-size: 2rem; margin-bottom: 0.5rem;">Philosophy</h2>
+                    <p style="opacity: 0.8;">Explore the depths of thought.</p>
+                </div>
+                <i class="fa-solid fa-brain"
+                    style="position: absolute; right: -20px; bottom: -20px; font-size: 8rem; opacity: 0.1;"></i>
+            </div>
+
+            <div style="background: linear-gradient(45deg, #6366f1, #06b6d4); padding: 3rem 2rem; border-radius: 24px; position: relative; overflow: hidden; cursor: pointer; transition: transform 0.3s;"
+                onclick="window.location.href='books.html?cat=technology'">
+                <div style="position: relative; z-index: 1;">
+                    <h2 style="font-size: 2rem; margin-bottom: 0.5rem;">Technology</h2>
+                    <p style="opacity: 0.8;">The future, simplified.</p>
+                </div>
+                <i class="fa-solid fa-microchip"
+                    style="position: absolute; right: -20px; bottom: -20px; font-size: 8rem; opacity: 0.1;"></i>
+            </div>
+        </div>
+    </main>
+
+    <footer style="margin-top: 100px;">
+        <div class="footer-bottom">
+            <p>&copy; 2026 Nithya's Book World.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Simple hover effect for category cards
+        document.querySelectorAll('div[onclick]').forEach(card => {
+            card.onmouseenter = () => card.style.transform = 'translateY(-10px)';
+            card.onmouseleave = () => card.style.transform = 'translateY(0)';
+        });
+    </script>
+</body>
+
+</html>

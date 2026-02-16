@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Books | Nithya's Book World</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <nav>
+        <div class="logo">NITHYA'S</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="books.html" class="active">Books</a></li>
+            <li><a href="categories.html">Categories</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-icons">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <div class="cart-icon" id="cart-button">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <span class="cart-count">0</span>
+            </div>
+            <i class="fa-solid fa-user"></i>
+        </div>
+    </nav>
+
+    <main style="margin-top: 100px;">
+        <header style="padding: 2rem 5%;">
+            <h1 style="font-size: 3rem; margin-bottom: 2rem;">Discover Our Collection</h1>
+
+            <div
+                style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem; margin-bottom: 3rem;">
+                <div style="display: flex; gap: 1rem; overflow-x: auto; padding-bottom: 0.5rem;">
+                    <button class="cat-btn active" onclick="filterByCategory('All')">All</button>
+                    <button class="cat-btn" onclick="filterByCategory('Fiction')">Fiction</button>
+                    <button class="cat-btn" onclick="filterByCategory('Design')">Design</button>
+                    <button class="cat-btn" onclick="filterByCategory('Philosophy')">Philosophy</button>
+                    <button class="cat-btn" onclick="filterByCategory('Technology')">Technology</button>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                    <label style="color: var(--text-muted); font-size: 0.9rem;">Sort by:</label>
+                    <select id="sort-select" onchange="sortBooks(this.value)"
+                        style="background: var(--bg-card); border: 1px solid var(--glass-border); color: white; padding: 0.8rem 1.5rem; border-radius: 50px; cursor: pointer; outline: none;">
+                        <option value="alphabetical">Alphabetical</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                    </select>
+                </div>
+            </div>
+        </header>
+
+        <section>
+            <div class="book-grid" id="all-books-grid">
+                <!-- Populated by script.js -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="logo">NITHYA'S</div>
+                <p style="color: var(--text-muted); margin-top: 1.5rem;">The world's most curated library for the modern
+                    individual.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Nithya's Book World.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Specific logic for books page
+        document.addEventListener('DOMContentLoaded', () => {
+            const grid = document.getElementById('all-books-grid');
+            if (grid) {
+                books.forEach(book => {
+                    grid.appendChild(createBookCard(book));
+                });
+                setupIntersectionObserver();
+            }
+        });
+    </script>
+</body>
+
+</html>

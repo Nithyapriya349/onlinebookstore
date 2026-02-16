@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nithya's Book World | Modern Bookstore & Literary Collective</title>
+    <meta name="description"
+        content="Discover curated collections of literature, from timeless classics to modern masterpieces at Nithya's Book World.">
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <nav>
+        <div class="logo">NITHYA'S</div>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="books.html">Books</a></li>
+            <li><a href="categories.html">Categories</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-icons">
+            <i class="fa-solid fa-magnifying-glass search-trigger" style="cursor: pointer;"></i>
+            <div class="cart-icon" id="cart-button">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <span class="cart-count">0</span>
+            </div>
+            <i class="fa-solid fa-user" style="cursor: pointer;"></i>
+        </div>
+    </nav>
+
+    <main>
+        <header class="hero">
+            <div class="hero-content">
+                <h1>Illuminate <br> Your Mind.</h1>
+                <p>Explore our curated selection of high-end literature and artistic volumes. From architecture to
+                    philosophy, find the books that shape worlds.</p>
+                <div class="hero-btns">
+                    <button class="btn-primary" onclick="window.location.href='books.html'">Explore Collection</button>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <!-- Using a gradient sphere for visual if image generation fails -->
+                <div
+                    style="width: 400px; height: 400px; background: radial-gradient(circle, var(--primary) 0%, transparent 70%); border-radius: 50%; opacity: 0.2; filter: blur(40px);">
+                </div>
+            </div>
+        </header>
+
+        <section id="featured">
+            <h2 class="section-title">New Arrivals</h2>
+            <div class="book-grid" id="featured-books">
+                <!-- Books will be injected by script.js -->
+                <div class="book-card fade-in">
+                    <div class="book-img">
+                        <span class="book-tag">Premium</span>
+                        <div style="padding: 2rem; text-align: center; color: var(--text-muted);">
+                            <i class="fa-solid fa-book-open fa-3x"></i>
+                        </div>
+                    </div>
+                    <div class="book-info">
+                        <h3>The Art of Tomorrow</h3>
+                        <p class="author">Elena Vance</p>
+                        <div class="book-footer">
+                            <span class="price">$45.00</span>
+                            <button class="add-btn"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Repeat for demo -->
+                <div class="book-card fade-in">
+                    <div class="book-img">
+                        <span class="book-tag">Classic</span>
+                        <div style="padding: 2rem; text-align: center; color: var(--text-muted);">
+                            <i class="fa-solid fa-book-open fa-3x"></i>
+                        </div>
+                    </div>
+                    <div class="book-info">
+                        <h3>Architectural Zen</h3>
+                        <p class="author">Sato Kenji</p>
+                        <div class="book-footer">
+                            <span class="price">$32.00</span>
+                            <button class="add-btn"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="newsletter"
+            style="background: var(--glass); margin: 0 5%; border-radius: 30px; text-align: center; border: 1px solid var(--glass-border);">
+            <h2 style="font-size: 2rem; margin-bottom: 1rem;">Join the Collective</h2>
+            <p style="color: var(--text-muted); margin-bottom: 2rem;">Subscribe for early access to limited editions and
+                literary events.</p>
+            <div style="display: flex; max-width: 500px; margin: 0 auto; gap: 1rem;">
+                <input type="email" placeholder="Email address"
+                    style="flex: 1; background: rgba(0,0,0,0.2); border: 1px solid var(--glass-border); padding: 1rem 1.5rem; border-radius: 50px; color: white;">
+                <button class="btn-primary" style="padding: 1rem 2rem;">Join</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="logo">NITHYA'S</div>
+                <p style="color: var(--text-muted); margin-top: 1.5rem;">The world's most curated library for the modern
+                    individual. Quality over quantity, always.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="books.html">Browse Books</a></li>
+                    <li><a href="categories.html">Categories</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">Shipping</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Connect</h4>
+                <div style="display: flex; gap: 1rem; font-size: 1.2rem;">
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-pinterest"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Nithya's Book World. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Bag | Nithya's Book World</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <nav>
+        <div class="logo">NITHYA'S</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="books.html">Books</a></li>
+            <li><a href="categories.html">Categories</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-icons">
+            <div class="cart-icon">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <span class="cart-count">0</span>
+            </div>
+        </div>
+    </nav>
+
+    <main style="margin-top: 120px; min-height: 70vh;">
+        <section>
+            <h1 style="font-size: 3rem; margin-bottom: 3rem;">Your Shopping Bag</h1>
+
+            <div id="cart-container" style="display: grid; grid-template-columns: 2fr 1fr; gap: 3rem;">
+                <div id="cart-items" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                    <!-- Items will be injected -->
+                </div>
+
+                <div id="cart-summary"
+                    style="background: var(--bg-card); padding: 2.5rem; border-radius: 24px; border: 1px solid var(--glass-border); height: fit-content;">
+                    <h2 style="margin-bottom: 2rem;">Order Summary</h2>
+                    <div
+                        style="display: flex; justify-content: space-between; margin-bottom: 1rem; color: var(--text-muted);">
+                        <span>Subtotal</span>
+                        <span id="subtotal">$0.00</span>
+                    </div>
+                    <div
+                        style="display: flex; justify-content: space-between; margin-bottom: 1rem; color: var(--text-muted);">
+                        <span>Shipping</span>
+                        <span>Free</span>
+                    </div>
+                    <hr style="border: 0; border-top: 1px solid var(--glass-border); margin: 1.5rem 0;">
+                    <div
+                        style="display: flex; justify-content: space-between; margin-bottom: 2rem; font-size: 1.5rem; font-weight: 700;">
+                        <span>Total</span>
+                        <span id="total">$0.00</span>
+                    </div>
+                    <button class="btn-primary" style="width: 100%;" onclick="checkout()">Checkout Now</button>
+                    <p style="text-align: center; font-size: 0.8rem; color: var(--text-muted); margin-top: 1.5rem;">
+                        Secure checkout powered by Nithya Pay</p>
+                </div>
+            </div>
+
+            <div id="empty-cart" style="display: none; text-align: center; padding: 5rem 2rem;">
+                <i class="fa-solid fa-bag-shopping fa-5x" style="color: var(--glass-border); margin-bottom: 2rem;"></i>
+                <h2>Your bag is currently empty</h2>
+                <p style="color: var(--text-muted); margin: 1rem 0 2rem;">Looking for something to read? Start exploring
+                    our main collection.</p>
+                <button class="btn-primary" onclick="window.location.href='books.html'">Go to Shop</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Nithya's Book World.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCart();
+        });
+
+        function renderCart() {
+            const itemsContainer = document.getElementById('cart-items');
+            const container = document.getElementById('cart-container');
+            const emptyState = document.getElementById('empty-cart');
+
+            if (!itemsContainer) return;
+
+            if (cart.length === 0) {
+                container.style.display = 'none';
+                emptyState.style.display = 'block';
+                return;
+            }
+
+            itemsContainer.innerHTML = '';
+            let subtotal = 0;
+
+            cart.forEach((item, index) => {
+                subtotal += item.price;
+                const itemEl = document.createElement('div');
+                itemEl.style.cssText = `
+                    background: var(--bg-card);
+                    display: flex;
+                    padding: 1.5rem;
+                    border-radius: 20px;
+                    border: 1px solid var(--glass-border);
+                    gap: 1.5rem;
+                    align-items: center;
+                `;
+                itemEl.innerHTML = `
+                    <div style="width: 80px; height: 110px; border-radius: 8px; overflow: hidden;">
+                        <img src="${item.image}" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div style="flex: 1;">
+                        <h3 style="font-size: 1.1rem; margin-bottom: 0.3rem;">${item.title}</h3>
+                        <p style="color: var(--text-muted); font-size: 0.9rem;">${item.author}</p>
+                    </div>
+                    <div style="text-align: right;">
+                        <p style="font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem;">$${item.price.toFixed(2)}</p>
+                        <button onclick="removeFromCart(${index})" style="background: none; border: none; color: var(--secondary); cursor: pointer; font-size: 0.9rem;">Remove</button>
+                    </div>
+                `;
+                itemsContainer.appendChild(itemEl);
+            });
+
+            document.getElementById('subtotal').innerText = `$${subtotal.toFixed(2)}`;
+            document.getElementById('total').innerText = `$${subtotal.toFixed(2)}`;
+        }
+
+        window.removeFromCart = (index) => {
+            cart.splice(index, 1);
+            localStorage.setItem('nithya_cart', JSON.stringify(cart));
+            updateCartCount();
+            renderCart();
+            showNotification('Item removed from bag');
+        };
+
+        window.checkout = () => {
+            showNotification('Processing your order...');
+            setTimeout(() => {
+                alert('Thank you for your purchase! (This is a demo)');
+                cart = [];
+                localStorage.setItem('nithya_cart', JSON.stringify(cart));
+                window.location.href = 'index.html';
+            }, 2000);
+        };
+    </script>
+</body>
+
+</html>

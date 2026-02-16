@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Details | Nithya's Book World</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <nav>
+        <div class="logo">NITHYA'S</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="books.html">Books</a></li>
+            <li><a href="categories.html">Categories</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-icons">
+            <div class="cart-icon" onclick="window.location.href='cart.html'">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <span class="cart-count">0</span>
+            </div>
+        </div>
+    </nav>
+
+    <main style="margin-top: 150px; padding: 0 5%; max-width: 1200px; margin-left: auto; margin-right: auto;">
+        <div id="book-detail-container"
+            style="display: grid; grid-template-columns: 1fr 1.5fr; gap: 5rem; align-items: start;">
+            <div id="book-image"
+                style="border-radius: 24px; overflow: hidden; border: 1px solid var(--glass-border); box-shadow: 0 30px 60px rgba(0,0,0,0.5);">
+                <!-- Image injected here -->
+            </div>
+            <div id="book-info-panel">
+                <span id="book-tag"
+                    style="background: var(--primary); color: white; padding: 0.5rem 1.5rem; border-radius: 50px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">Category</span>
+                <h1 id="book-title" style="font-size: 4rem; margin: 1.5rem 0 0.5rem;">Book Title</h1>
+                <p id="book-author" style="font-size: 1.5rem; color: var(--text-muted); margin-bottom: 2rem;">by Author
+                    Name</p>
+
+                <p id="book-description"
+                    style="color: var(--text-muted); line-height: 1.8; margin-bottom: 3rem; font-size: 1.1rem;">
+                    This is a placeholder description for the selected book. In a real application, this would contain a
+                    detailed summary of the plot or the value of the book. Our curated selection ensures every page is
+                    worth your time.
+                </p>
+
+                <div style="display: flex; align-items: center; gap: 3rem; margin-bottom: 3rem;">
+                    <div id="book-price" style="font-size: 2.5rem; font-weight: 700; color: var(--primary);">$0.00</div>
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <button
+                            style="background: var(--glass); border: 1px solid var(--glass-border); width: 40px; height: 40px; border-radius: 50%; color: white; cursor: pointer;">-</button>
+                        <span style="font-size: 1.2rem; font-weight: 600;">1</span>
+                        <button
+                            style="background: var(--glass); border: 1px solid var(--glass-border); width: 40px; height: 40px; border-radius: 50%; color: white; cursor: pointer;">+</button>
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 1.5rem;">
+                    <button id="add-to-cart-btn" class="btn-primary" style="padding: 1.2rem 3rem;">Add to Bag</button>
+                    <button
+                        style="background: var(--glass); border: 1px solid var(--glass-border); padding: 1.2rem 2rem; border-radius: 50px; color: white; cursor: pointer; transition: 0.3s;"
+                        onmouseover="this.style.background='var(--primary)'"
+                        onmouseout="this.style.background='var(--glass)'">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                </div>
+
+                <div
+                    style="margin-top: 4rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; border-top: 1px solid var(--glass-border); padding-top: 2rem;">
+                    <div>
+                        <h4 style="margin-bottom: 0.5rem;">Shipping</h4>
+                        <p style="color: var(--text-muted); font-size: 0.9rem;">Free worldwide shipping on orders over
+                            $100.</p>
+                    </div>
+                    <div>
+                        <h4 style="margin-bottom: 0.5rem;">Authenticity</h4>
+                        <p style="color: var(--text-muted); font-size: 0.9rem;">Every book is checked for quality and
+                            authenticity.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer style="margin-top: 100px;">
+        <div class="footer-bottom">
+            <p>&copy; 2026 Nithya's Book World.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const bookId = parseInt(urlParams.get('id')) || 1;
+            const book = books.find(b => b.id === bookId);
+
+            if (book) {
+                document.title = `${book.title} | Nithya's Book World`;
+                document.getElementById('book-title').innerText = book.title;
+                document.getElementById('book-author').innerText = `by ${book.author}`;
+                document.getElementById('book-price').innerText = `$${book.price.toFixed(2)}`;
+                document.getElementById('book-tag').innerText = book.tag;
+                document.getElementById('book-image').innerHTML = `<img src="${book.image}" alt="${book.title}" style="width: 100%; display: block;">`;
+
+                document.getElementById('add-to-cart-btn').onclick = () => {
+                    addToCart(book.id);
+                };
+            }
+        });
+    </script>
+</body>
+
+</html>

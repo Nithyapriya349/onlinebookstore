@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Nithya's Book World</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <nav>
+        <div class="logo">NITHYA'S</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="books.html">Books</a></li>
+            <li><a href="categories.html">Categories</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+        <div class="nav-icons">
+            <div class="cart-icon" onclick="window.location.href='cart.html'">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <span class="cart-count">0</span>
+            </div>
+        </div>
+    </nav>
+
+    <main style="margin-top: 150px; padding: 0 5%;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; max-width: 1200px; margin: 0 auto;">
+            <div>
+                <h1 style="font-size: 4rem; margin-bottom: 2rem;">Let's Start a <br> Conversation.</h1>
+                <p style="color: var(--text-muted); font-size: 1.2rem; margin-bottom: 3rem;">Whether you're looking for
+                    a specific first edition or want to host a literary event, our team is here to assist.</p>
+
+                <div style="display: flex; flex-direction: column; gap: 2rem;">
+                    <div style="display: flex; gap: 1.5rem; align-items: center;">
+                        <div
+                            style="width: 50px; height: 50px; background: var(--glass); border-radius: 12px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--glass-border);">
+                            <i class="fa-solid fa-location-dot" style="color: var(--primary);"></i>
+                        </div>
+                        <div>
+                            <h4 style="margin-bottom: 0.2rem;">Our Headquarters</h4>
+                            <p style="color: var(--text-muted); font-size: 0.9rem;">241 Literary Ave, New York, NY 10012
+                            </p>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 1.5rem; align-items: center;">
+                        <div
+                            style="width: 50px; height: 50px; background: var(--glass); border-radius: 12px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--glass-border);">
+                            <i class="fa-solid fa-envelope" style="color: var(--primary);"></i>
+                        </div>
+                        <div>
+                            <h4 style="margin-bottom: 0.2rem;">General Inquiries</h4>
+                            <p style="color: var(--text-muted); font-size: 0.9rem;">hello@nithyasbookworld.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                style="background: var(--bg-card); padding: 3rem; border-radius: 30px; border: 1px solid var(--glass-border);">
+                <form id="contact-form"
+                    onsubmit="event.preventDefault(); showNotification('Message sent successfully!'); this.reset();">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+                        <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                            <label style="font-size: 0.9rem; color: var(--text-muted);">Name</label>
+                            <input type="text" required
+                                style="background: rgba(0,0,0,0.2); border: 1px solid var(--glass-border); padding: 1rem; border-radius: 12px; color: white;">
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                            <label style="font-size: 0.9rem; color: var(--text-muted);">Email</label>
+                            <input type="email" required
+                                style="background: rgba(0,0,0,0.2); border: 1px solid var(--glass-border); padding: 1rem; border-radius: 12px; color: white;">
+                        </div>
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 2rem;">
+                        <label style="font-size: 0.9rem; color: var(--text-muted);">Message</label>
+                        <textarea rows="5" required
+                            style="background: rgba(0,0,0,0.2); border: 1px solid var(--glass-border); padding: 1rem; border-radius: 12px; color: white; resize: none;"></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary" style="width: 100%;">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer style="margin-top: 100px;">
+        <div class="footer-bottom">
+            <p>&copy; 2026 Nithya's Book World.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
