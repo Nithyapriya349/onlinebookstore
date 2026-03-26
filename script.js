@@ -1,30 +1,6 @@
 // Book Data
-const books = [
-    { id: 1, title: "The Art of Tomorrow", author: "Elena Vance", price: 45.00, tag: "Premium", category: "Design", image: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&q=80&w=400" },
-    { id: 2, title: "Architectural Zen", author: "Sato Kenji", price: 32.00, tag: "Classic", category: "Design", image: "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&q=80&w=400" },
-    { id: 3, title: "Nodes of Logic", author: "Marcus Thorne", price: 28.50, tag: "Bestseller", category: "Technology", image: "https://images.unsplash.com/photo-1543004629-142a26698a3a?auto=format&fit=crop&q=80&w=400" },
-    { id: 4, title: "The Silent Echo", author: "Sarah J. Maas", price: 19.99, tag: "Popular", category: "Fiction", image: "https://images.unsplash.com/photo-1495446815901-a7297e633e8d?auto=format&fit=crop&q=80&w=400" },
-    { id: 5, title: "Design for Space", author: "Julian Peters", price: 55.00, tag: "Limited", category: "Technology", image: "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80&w=400" },
-    { id: 6, title: "The Last Horizon", author: "Clara Oswald", price: 24.00, tag: "Trending", category: "Fiction", image: "https://images.unsplash.com/photo-1532012197367-6849412618d1?auto=format&fit=crop&q=80&w=400" },
-    { id: 7, title: "Cybernetic Ethics", author: "Dr. Aris Varma", price: 38.00, tag: "New", category: "Technology", image: "https://images.unsplash.com/photo-1509248961158-e54f6934749c?auto=format&fit=crop&q=80&w=400" },
-    { id: 8, title: "Minimalist Living", author: "Lars Hudson", price: 15.50, tag: "Classic", category: "Philosophy", image: "https://images.unsplash.com/photo-1491841260033-68d799049969?auto=format&fit=crop&q=80&w=400" },
-    { id: 9, title: "Ancient Shadows", author: "Yara Ben", price: 29.99, tag: "Mystery", category: "Fiction", image: "https://images.unsplash.com/photo-1512588150435-401cd7eaa9c5?auto=format&fit=crop&q=80&w=400" },
-    { id: 10, title: "The Creative Act", author: "Rick Rubin", price: 42.00, tag: "Premium", category: "Design", image: "https://images.unsplash.com/photo-1541963463532-d68292c34b19?auto=format&fit=crop&q=80&w=400" },
-    { id: 11, title: "Stoic Calm", author: "Marcus Aurelius", price: 12.00, tag: "Essential", category: "Philosophy", image: "https://images.unsplash.com/photo-1531988042231-d39a9cc12a9a?auto=format&fit=crop&q=80&w=400" },
-    { id: 12, title: "Beyond Reality", author: "S.J. Kincaid", price: 22.50, tag: "Sci-Fi", category: "Fiction", image: "https://images.unsplash.com/photo-1614850523296-d8c1af93d400?auto=format&fit=crop&q=80&w=400" },
-    { id: 13, title: "The Ocean of Night", author: "Gregory Benford", price: 27.00, tag: "Space", category: "Fiction", image: "https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?auto=format&fit=crop&q=80&w=400" },
-    { id: 14, title: "Typographic Soul", author: "Erik Spiekermann", price: 48.00, tag: "Art", category: "Design", image: "https://images.unsplash.com/photo-1561070791-2dc269789961?auto=format&fit=crop&q=80&w=400" },
-    { id: 15, title: "The AI Revolution", author: "Sam Altman", price: 65.50, tag: "Advanced", category: "Technology", image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=400" },
-    { id: 16, title: "Modernist Cuisine", author: "Nathan Myhrvold", price: 120.00, tag: "Elite", category: "Design", image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&q=80&w=400" },
-    { id: 17, title: "Ego is the Enemy", author: "Ryan Holiday", price: 18.00, tag: "Bestseller", category: "Philosophy", image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&q=80&w=400" },
-    { id: 18, title: "The Hidden Forest", author: "Peter Wohlleben", price: 21.00, tag: "Nature", category: "Philosophy", image: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=400" },
-    { id: 19, title: "Code of the Brave", author: "Linus Torvalds", price: 35.00, tag: "Source", category: "Technology", image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=400" },
-    { id: 20, title: "Vintage Architecture", author: "Frank Wright", price: 72.00, tag: "Exclusive", category: "Design", image: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&q=80&w=400" },
-    { id: 21, title: "Dark Matter Chronicles", author: "Blake Crouch", price: 24.50, tag: "Thriller", category: "Fiction", image: "https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&q=80&w=400" },
-    { id: 22, title: "The Laws of Human Nature", author: "Robert Greene", price: 31.00, tag: "Classic", category: "Philosophy", image: "https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&q=80&w=400" }
-];
-
-let filteredBooks = [...books];
+let books = [];
+let filteredBooks = [];
 
 // Unified Cart State
 window.cart = JSON.parse(localStorage.getItem('nithya_cart')) || [];
@@ -33,14 +9,43 @@ window.cart = JSON.parse(localStorage.getItem('nithya_cart')) || [];
 document.addEventListener('DOMContentLoaded', () => {
     updateCartCount();
 
-    const isBooksPage = !!document.getElementById('all-books-grid');
-    if (isBooksPage) {
-        renderBooks(books);
-    } else {
-        loadFeaturedBooks();
-    }
+    // Fetch books from PHP backend
+    fetch('api.php?action=books')
+        .then(res => res.json())
+        .then(data => {
+            if (data.status === 'success') {
+                books = data.data;
+                filteredBooks = [...books];
+                
+                const isBooksPage = !!document.getElementById('all-books-grid');
+                if (isBooksPage) {
+                    renderBooks(books);
+                    
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const catParam = urlParams.get('cat');
+                    if (catParam) {
+                        const capitalized = catParam.charAt(0).toUpperCase() + catParam.slice(1);
+                        filterByCategory(capitalized);
+                        
+                        // Update active button state
+                        const btns = document.querySelectorAll('.cat-btn');
+                        btns.forEach(b => b.classList.remove('active'));
+                        btns.forEach(btn => {
+                            if (btn.innerText === capitalized) {
+                                btn.classList.add('active');
+                            }
+                        });
+                    }
+                } else {
+                    loadFeaturedBooks();
+                }
 
-    setupIntersectionObserver();
+                setupIntersectionObserver();
+            }
+        })
+        .catch(err => {
+            console.error("Error fetching books:", err);
+        });
 });
 
 function renderBooks(booksToRender) {
@@ -54,9 +59,11 @@ function renderBooks(booksToRender) {
 }
 
 function filterByCategory(category) {
-    const filterBtns = document.querySelectorAll('.cat-btn');
-    filterBtns.forEach(btn => btn.classList.remove('active'));
-    event.target.classList.add('active');
+    if (window.event && window.event.target && window.event.target.classList) {
+        const filterBtns = document.querySelectorAll('.cat-btn');
+        filterBtns.forEach(btn => btn.classList.remove('active'));
+        window.event.target.classList.add('active');
+    }
 
     if (category === 'All') {
         filteredBooks = [...books];
@@ -108,8 +115,11 @@ function createBookCard(book) {
         <div class="book-info">
             <h3 onclick="window.location.href='details.html?id=${book.id}'" style="cursor: pointer;">${book.title}</h3>
             <p class="author">${book.author}</p>
+            <div class="rating" style="color: #f39c12; margin-bottom: 0.5rem; font-size: 0.9rem;">
+                ${getStars(book.rating)} <span style="color: var(--text-muted); font-size: 0.8rem;">(${book.rating ? book.rating.toFixed(1) : '4.5'})</span>
+            </div>
             <div class="book-footer">
-                <span class="price">$${book.price.toFixed(2)}</span>
+                <span class="price">$${parseFloat(book.price).toFixed(2)}</span>
                 <button class="add-btn" onclick="addToCart(${book.id})"><i class="fa-solid fa-plus"></i></button>
             </div>
         </div>
@@ -186,3 +196,15 @@ style.innerHTML = `
     }
 `;
 document.head.appendChild(style);
+
+function getStars(rating) {
+    const r = rating || 4.5;
+    const full = Math.floor(r);
+    const half = (r - full) >= 0.5;
+    let stars = '';
+    for(let i=0; i<full; i++) stars += '<i class="fa-solid fa-star"></i>';
+    if(half) stars += '<i class="fa-solid fa-star-half-stroke"></i>';
+    const empty = 5 - Math.ceil(r);
+    for(let i=0; i<empty; i++) stars += '<i class="fa-regular fa-star"></i>';
+    return stars;
+}
